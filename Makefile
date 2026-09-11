@@ -7,7 +7,7 @@ all: sysroot
 sysroot:
 	mkdir -p toolchain
 	docker build -t vscode-sysroot --target sysroot .
-	docker run -it --rm -v $$PWD/toolchain:/out vscode-sysroot cp vscode-sysroot-x86_64-linux-gnu.tgz /out/
+	docker run --rm -v $$PWD/toolchain:/out vscode-sysroot cp vscode-sysroot-x86_64-linux-gnu.tgz /out/
 	ls -l toolchain
 
 # You could also use `docker build --target crosstool` to build a more traditional image containing just
