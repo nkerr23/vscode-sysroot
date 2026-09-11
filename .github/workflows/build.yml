@@ -1,0 +1,24 @@
+name: Build VS Code Sysroot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build sysroot
+        run: make
+
+      - name: Show output
+        run: ls -lh toolchain/
+
+      - name: Upload sysroot
+        uses: actions/upload-artifact@v4
+        with:
+          name: vscode-sysroot
+          path: toolchain/vscode-sysroot-x86_64-linux-gnu.tgz
