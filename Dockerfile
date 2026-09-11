@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS crosstool
+FROM ubuntu:22.04 AS crosstool
 
 RUN apt-get update
 RUN apt-get install -y gcc g++ gperf bison flex texinfo help2man make libncurses5-dev \
